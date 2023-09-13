@@ -1,0 +1,66 @@
+[
+  {
+    "Name": "Mercury",
+    "details": "From the surface of Mercury, the Sun would appear more than three times as large as it does when viewed from Earth, and the sunlight would be as much as 11 times brighter.",
+    "distance from sun": "31,257,450 KM",
+    "length": "88 Earth Days",
+    "planet type": "Terrestrial",
+    "Image": "lib/Assets/1.png"
+  },
+  {
+    "Name": "Venus",
+    "details": "Similar in structure and size to Earth, Venus's thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.",
+    "distance from sun": "67,476,740 KM",
+    "length": "225 Earth Days",
+    "planet type": "Terrestrial",
+    "Image": "lib/Assets/2.png"
+  },
+  {
+    "Name": "Earth",
+    "details": "Earth—our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.",
+    "distance from sun": "93,535,040 KM",
+    "length": "365 Earth Days",
+    "planet type": "Terrestrial",
+    "Image": "lib/Assets/3.png"
+  },
+  {
+    "Name": "Mars",
+    "details": "Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was – billions of years ago – wetter and warmer, with a thicker atmosphere.",
+    "distance from sun": "149,907,000 KM",
+    "length": "687 Earth Days",
+    "planet type": "Terrestrial",
+    "Image": "lib/Assets/4.png"
+  },
+  {
+    "Name": "Jupiter",
+    "details": "Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red Spot is a centuries-old storm bigger than Earth.",
+    "distance from sun": "461,719,975 KM",
+    "length": "4,333 Earth Days",
+    "planet type": "Gas Giant",
+    "Image": "lib/Assets/5.png"
+  },
+  {
+    "Name": "Saturn",
+    "details": "Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.",
+    "distance from sun": "908,017,025 KM",
+    "length": "10,759 Earth Days",
+    "planet type": "Gas Giant",
+    "Image": "lib/Assets/6.png"
+  },
+  {
+    "Name": "Uranus",
+    "details": "Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.",
+    "distance from sun": "1,779,483,270 KM",
+    "length": "30,687 Earth Days",
+    "planet type": "Ice Giant",
+    "Image": "lib/Assets/7.png"
+  },
+  {
+    "Name": "Neptune",
+    "details": "Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations.",
+    "distance from sun": "2,779,979,891 KM",
+    "length": "60,190 Earth Days",
+    "planet type": "Ice Giant",
+    "Image": "lib/Assets/8.png"
+  }
+]
