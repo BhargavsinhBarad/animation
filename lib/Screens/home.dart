@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../Provider/theme.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -17,8 +20,8 @@ class _homeState extends State<home> with TickerProviderStateMixin {
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 5),
-    )..reset();
+      duration: Duration(seconds: 10),
+    )..repeat();
   }
 
   @override
@@ -34,18 +37,78 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               fit: BoxFit.cover,
             ),
           ),
-          Center(
-            child: AnimatedBuilder(
-              animation: controller,
-              builder: (context, child) {
-                return Transform.rotate(
-                  angle: controller.value * 2 * pi,
-                  child: Container(
-                    child: Image.asset("lib/Assets/9.png"),
+          Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.18,
+              ),
+              AnimatedBuilder(
+                animation: controller,
+                builder: (context, child) {
+                  return Transform.rotate(
+                    angle: controller.value * 2 * pi,
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      child: Image.asset("lib/Assets/9.png"),
+                    ),
+                  );
+                },
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.09),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'planet');
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        "Start",
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                   ),
-                );
-              },
-            ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'favourite');
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        "Favourite",
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    Provider.of<themeprovider>(context, listen: false)
+                        .changetheme();
+                  },
+                  icon: Icon(
+                    Icons.bedtime_sharp,
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
