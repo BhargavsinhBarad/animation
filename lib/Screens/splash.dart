@@ -13,7 +13,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     Timer(
-      Duration(seconds: 8),
+      Duration(seconds: 4),
       () {
         Navigator.pushReplacementNamed(context, 'home');
       },
