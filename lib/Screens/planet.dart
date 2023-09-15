@@ -40,63 +40,67 @@ class _planetState extends State<planet> {
               Expanded(
                 flex: 20,
                 child: FutureBuilder(
-                    future: rootBundle.loadString("lib/Json/data.json"),
-                    builder: (BuildContext context, AsyncSnapshot snapshot) {
-                      if (snapshot.hasError) {
-                        return Text(snapshot.hasError.toString());
-                      } else if (snapshot.hasData) {
-                        String jsondata = snapshot.data;
-                        List maydata = jsonDecode(jsondata);
-                        List<jsonmodel> data = maydata
-                            .map(
-                              (e) => jsonmodel.js(data: e),
-                            )
-                            .toList();
-                        return GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                          ),
-                          itemCount: 8,
-                          itemBuilder: (BuildContext context, int index) {
-                            return GestureDetector(
-                              onTap: () {
-                                datamodel d1 = datamodel(
-                                    Name: maydata[index]['Name'],
-                                    details: maydata[index]['details'],
-                                    distancefromsun: maydata[index]
-                                        ['distancefromsun'],
-                                    length: maydata[index]['length'],
-                                    planettype: maydata[index]['planettype'],
-                                    Image: maydata[index]['Image']);
-                                Navigator.pushNamed(context, 'detail',
-                                    arguments: d1);
-                              },
-                              child: Container(
-                                margin: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.5),
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 80,
-                                      width: 100,
-                                      child: Image.asset(
-                                        maydata[index]['Image'],
-                                        fit: BoxFit.cover,
-                                      ),
+                  future: rootBundle.loadString("lib/Json/data.json"),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasError) {
+                      return Text(snapshot.hasError.toString());
+                    } else if (snapshot.hasData) {
+                      String jsondata = snapshot.data;
+                      List maydata = jsonDecode(jsondata);
+                      List<jsonmodel> data = maydata
+                          .map(
+                            (e) => jsonmodel.js(data: e),
+                          )
+                          .toList();
+                      return GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisExtent: 180,
+                          mainAxisSpacing: 8,
+                          crossAxisSpacing: 8,
+                          crossAxisCount: 3,
+                        ),
+                        itemCount: 8,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              datamodel d1 = datamodel(
+                                  Name: maydata[index]['Name'],
+                                  details: maydata[index]['details'],
+                                  distancefromsun: maydata[index]
+                                      ['distancefromsun'],
+                                  length: maydata[index]['length'],
+                                  planettype: maydata[index]['planettype'],
+                                  Image: maydata[index]['Image']);
+                              Navigator.pushNamed(context, 'detail',
+                                  arguments: d1);
+                            },
+                            child: Container(
+                              height: 200,
+                              decoration: BoxDecoration(
+                                  color: Colors.white.withOpacity(0.5),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Container(
+                                    height: 120,
+                                    child: Image.asset(
+                                      maydata[index]['Image'],
+                                      fit: BoxFit.cover,
                                     ),
-                                    Text(maydata[index]['Name'])
-                                  ],
-                                ),
+                                  ),
+                                  Text(maydata[index]['Name'])
+                                ],
                               ),
-                            );
-                          },
-                        );
-                      }
-                      return CircularProgressIndicator();
-                    }),
+                            ),
+                          );
+                        },
+                      );
+                    }
+                    return CircularProgressIndicator();
+                  },
+                ),
               ),
             ],
           )

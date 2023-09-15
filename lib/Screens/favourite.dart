@@ -10,6 +10,7 @@ class favourite extends StatefulWidget {
 
 class _favouriteState extends State<favourite> {
   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -29,13 +30,13 @@ class _favouriteState extends State<favourite> {
                         (e) => Container(
                           child: Row(
                             children: [
-                              Container(
-                                height: 100,
-                                width: 100,
-                                child: Image.asset(
-                                  e['Image'],
-                                ),
-                              ),
+                              // Container(
+                              //   height: 100,
+                              //   width: 100,
+                              //   child: Image.asset(
+                              //     e['Image'],
+                              //   ),
+                              // ),
                               SizedBox(
                                 width: 20,
                               ),

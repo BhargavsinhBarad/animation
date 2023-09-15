@@ -43,11 +43,9 @@ class _detailState extends State<detail> {
                   child: Column(
                     children: [
                       Container(
-                        width: double.infinity,
-                        height: 250,
                         margin: EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.5),
+                          // color: Colors.white.withOpacity(0.5),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Image.asset(e.Image),
