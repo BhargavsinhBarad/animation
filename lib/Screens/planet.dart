@@ -4,6 +4,9 @@ import 'package:animation/Model/datamodel.dart';
 import 'package:animation/Model/jesonmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+
+import '../Provider/theme.dart';
 
 class planet extends StatefulWidget {
   const planet({super.key});
@@ -22,7 +25,10 @@ class _planetState extends State<planet> {
             height: double.infinity,
             width: double.infinity,
             child: Image.network(
-              "https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_53876-150103.jpg",
+              (Provider.of<themeprovider>(context, listen: true).theme.isdark ==
+                      true)
+                  ? "https://img.freepik.com/premium-photo/nebula-galaxy-background_469558-17578.jpg"
+                  : "https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_53876-150103.jpg",
               fit: BoxFit.cover,
             ),
           ),
@@ -35,7 +41,7 @@ class _planetState extends State<planet> {
                   flex: 1,
                   child: Text(
                     "Planets",
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(fontSize: 25, color: Colors.white),
                   )),
               Expanded(
                 flex: 20,

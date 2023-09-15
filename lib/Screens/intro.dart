@@ -27,9 +27,9 @@ class _intro_pageState extends State<intro_page> {
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: NetworkImage(
-                            "https://gifdb.com/images/high/solar-system-illustration-loop-vk798bcypnl5zd2l.gif"),
-                        fit: BoxFit.cover)),
+                      image: NetworkImage(
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7v-wZE83pEWKsOoMttEuOJX6HptklYeXaMWV03VfENRsffw0QNRumwLx5j06G4ARAX8&usqp=CAU"),
+                    )),
               ),
             ),
           ),

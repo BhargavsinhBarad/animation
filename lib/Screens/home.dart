@@ -33,7 +33,10 @@ class _homeState extends State<home> with TickerProviderStateMixin {
             height: double.infinity,
             width: double.infinity,
             child: Image.network(
-              "https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_53876-150103.jpg",
+              (Provider.of<themeprovider>(context, listen: true).theme.isdark ==
+                      true)
+                  ? "https://img.freepik.com/premium-photo/nebula-galaxy-background_469558-17578.jpg"
+                  : "https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_53876-150103.jpg",
               fit: BoxFit.cover,
             ),
           ),

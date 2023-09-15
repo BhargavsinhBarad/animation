@@ -1,5 +1,8 @@
 import 'package:animation/Utils/List.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../Provider/theme.dart';
 
 class favourite extends StatefulWidget {
   const favourite({super.key});
@@ -19,35 +22,84 @@ class _favouriteState extends State<favourite> {
             height: double.infinity,
             width: double.infinity,
             child: Image.network(
-              "https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_53876-150103.jpg",
+              (Provider.of<themeprovider>(context, listen: true).theme.isdark ==
+                      true)
+                  ? "https://img.freepik.com/premium-photo/nebula-galaxy-background_469558-17578.jpg"
+                  : "https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_53876-150103.jpg",
               fit: BoxFit.cover,
             ),
           ),
-          (addFavourite.isNotEmpty)
-              ? Column(
-                  children: addFavourite
-                      .map(
-                        (e) => Container(
-                          child: Row(
+          Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      "Favourite",
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 20,
+                child: (addFavourite.isNotEmpty)
+                    ? ListView.builder(
+                        itemCount: addFavourite.length,
+                        itemBuilder: (ctx, i) {
+                          return Column(
                             children: [
-                              // Container(
-                              //   height: 100,
-                              //   width: 100,
-                              //   child: Image.asset(
-                              //     e['Image'],
-                              //   ),
-                              // ),
-                              SizedBox(
-                                width: 20,
+                              Container(
+                                padding: EdgeInsets.all(15),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.white.withOpacity(0.4),
+                                ),
+                                margin: EdgeInsets.all(10),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: 100,
+                                      width: 100,
+                                      child: Image.asset(
+                                        addFavourite[i].Image,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.07,
+                                    ),
+                                    Text(
+                                      addFavourite[i].Name,
+                                    ),
+                                    Spacer(),
+                                    IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            addFavourite
+                                                .remove(addFavourite[i]);
+                                          });
+                                        },
+                                        icon: Icon(Icons.cancel_outlined))
+                                  ],
+                                ),
                               ),
-                              Text(e['Name']),
                             ],
-                          ),
+                          );
+                        })
+                    : Center(
+                        child: Container(
+                          child: Text("Empty....."),
                         ),
-                      )
-                      .toList(),
-                )
-              : Container(),
+                      ),
+              ),
+            ],
+          ),
         ],
       ),
     );
