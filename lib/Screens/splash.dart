@@ -26,7 +26,7 @@ class _SplashState extends State<Splash> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
-                  "https://i.gifer.com/origin/c5/c57596e29e57ab000d699af1ee6c698c_w200.gif"),
+                  "https://i.pinimg.com/originals/ae/49/3b/ae493bf160032d58a86f33a58a0404f6.gif"),
               fit: BoxFit.cover,
             ),
           ),
